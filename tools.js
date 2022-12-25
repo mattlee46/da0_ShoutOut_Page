@@ -340,33 +340,33 @@ function onwerList(){
 // 	for (var i = 0; i < data_pfp.length;i++){
 		
 // 		if (data_pfp[i][1] <= 15) {
-// 			console.log('data_pfp[i][1] <= 15:::'+data_pfp[i][0]);
+// 			console.log('data_pfp[i][1] <= 15:::'+data_pfp[i][0].toLowerCase());
 // 			console.log('data_pfp[i][1] <= 15:::'+data_pfp[i][1]);
 
-// 			fs.copyFile('./assets/img/material/Level1/'+data_pfp[i][2]+'.png', './assets/img/result/'+data_pfp[i][0]+'.png', (err) => {
+// 			fs.copyFile('./assets/img/material/Level1/'+data_pfp[i][2]+'.png', './assets/img/result/'+data_pfp[i][0].toLowerCase()+'.png', (err) => {
 // 			  if (err) throw err;
 // 			  console.log('pfp was copied');
 // 			});
 			
 
 // 		}else if(data_pfp[i][1] <= 30){
-// 			console.log('data_pfp[i][1] <= 30:::'+data_pfp[i][0]);
+// 			console.log('data_pfp[i][1] <= 30:::'+data_pfp[i][0].toLowerCase());
 // 			console.log('data_pfp[i][1] <= 30:::'+data_pfp[i][1]);
-// 			fs.copyFile('./assets/img/material/Level2/'+data_pfp[i][2]+'-'+data_pfp[i][3]+'.png', './assets/img/result/'+data_pfp[i][0]+'.png', (err) => {
+// 			fs.copyFile('./assets/img/material/Level2/'+data_pfp[i][2]+'-'+data_pfp[i][3]+'.png', './assets/img/result/'+data_pfp[i][0].toLowerCase()+'.png', (err) => {
 // 			  if (err) throw err;
 // 			  console.log('pfp was copied');
 // 			});
 // 		}else if(data_pfp[i][1] <= 60){
-// 			console.log('data_pfp[i][1] <= 60:::'+data_pfp[i][0]);
+// 			console.log('data_pfp[i][1] <= 60:::'+data_pfp[i][0].toLowerCase());
 // 			console.log('data_pfp[i][1] <= 60:::'+data_pfp[i][1]);
-// 			fs.copyFile('./assets/img/material/Level3/'+data_pfp[i][2]+'-'+data_pfp[i][3]+'-'+data_pfp[i][4]+'.png', './assets/img/result/'+data_pfp[i][0]+'.png', (err) => {
+// 			fs.copyFile('./assets/img/material/Level3/'+data_pfp[i][2]+'-'+data_pfp[i][3]+'-'+data_pfp[i][4]+'.png', './assets/img/result/'+data_pfp[i][0].toLowerCase()+'.png', (err) => {
 // 			  if (err) throw err;
 // 			  console.log('pfp was copied');
 // 			});
 // 		}else{
-// 			console.log('data_pfp[i][1] > 60:::'+data_pfp[i][0]);
+// 			console.log('data_pfp[i][1] > 60:::'+data_pfp[i][0].toLowerCase());
 // 			console.log('data_pfp[i][1] > 60:::'+data_pfp[i][1]);
-// 			fs.copyFile('./assets/img/material/Level3/'+data_pfp[i][2]+'-'+data_pfp[i][3]+'-'+data_pfp[i][4]+'.png', './assets/img/result/'+data_pfp[i][0]+'.png', (err) => {
+// 			fs.copyFile('./assets/img/material/Level3/'+data_pfp[i][2]+'-'+data_pfp[i][3]+'-'+data_pfp[i][4]+'.png', './assets/img/result/'+data_pfp[i][0].toLowerCase()+'.png', (err) => {
 // 			  if (err) throw err;
 // 			  console.log('pfp was copied');
 // 			});
