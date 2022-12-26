@@ -6,6 +6,8 @@ var usdtApprove;
 var contract_address;
 var contract_abi;
 var da01_amount;
+var slackId;
+
 // var ownerAddress;
 // var ownerBalance;
 let data_pfp =[
@@ -159,6 +161,48 @@ const GetAndShowBalance = async () => {
           $("#score").text("Score："+da01_amount+" DA01");
           $("#pfp").attr("src","./assets/img/result/"+coinbase+".png");
 
+          fetch('https://epic-slack-app.herokuapp.com/api/json/users/'+coinbase+'/real_name').then(function(response_name) {
+              // 直接轉成JSON格式
+              return response_name.json()
+          }).then(function(obj) {
+              // `obj`會是一個JavaScript物件
+
+              console.log(obj);
+              console.log(obj['real_name']);
+              slackId = obj['real_name'];
+              $("#slackId").text('@'+slackId);
+
+              fetch('https://epic-slack-app.herokuapp.com/api/json/users/'+coinbase+'/epic').then(function(response_epic) {
+                  // 直接轉成JSON格式
+              	//0x15c7281842a45465b4cbb8f89111d99e36e5bab8
+                  return response_epic.json()
+              }).then(function(obj2) {
+                  // `obj`會是一個JavaScript物件
+                  console.log(obj2);
+                  console.log(obj2['epic'][0]);
+                  // epic =obj2['epic'][0]+'\n\n';
+                  // epic.push(obj2['epic'][1]+obj2['epic'][2]);
+                  let epic = [];
+                  for (var t = 0; t < obj2['epic'].length ; t++) {
+                  	epic.push('\n\n\n第'+(t+1)+'則史詩\n');
+                  	epic.push(String(obj2['epic'][t]));
+                  	
+                  }
+                 	console.log('EP::::'+String(epic));
+                 	epic = String(epic);
+                 	// jQuery('#epic').html(htmlForTextWithEmbeddedNewlines(String(epic)));
+                 	jQuery('#epic').html(htmlForTextWithEmbeddedNewlines(epic));
+
+                  // $("#epic").text(obj23);
+
+              }).catch(function(err2) {
+                // Error :(
+              })
+
+          }).catch(function(err) {
+            // Error :(
+          })
+
           // metadatajson();
           // onwerList();
      
@@ -256,6 +300,36 @@ const connectWalletGetAddress = async () => {
 
 }
 
+
+function htmlForTextWithEmbeddedNewlines(text) {
+    var htmls = [];
+    var lines = text.split(/\n/);
+    // The temporary <div/> is to perform HTML entity encoding reliably.
+    //
+    // document.createElement() is *much* faster than jQuery('<div></div>')
+    // http://stackoverflow.com/questions/268490/
+    //
+    // You don't need jQuery but then you need to struggle with browser
+    // differences in innerText/textContent yourself
+    var tmpDiv = jQuery(document.createElement('html'));
+    for (var i = 0 ; i < lines.length ; i++) {
+        htmls.push(tmpDiv.text(lines[i]).html());
+    }
+    return htmls.join("<br>");
+}
+
+//get slack name and epic
+
+
+
+
+
+
+// $("#slackId").text();
+// $("#epic").text();
+
+
+
 // var fs = require('fs');
 // var stringify = require('stringify');
 
@@ -288,52 +362,52 @@ const connectWalletGetAddress = async () => {
 
 // }
 
-const getBalanceByAddress = async (address) =>{
+// const getBalanceByAddress = async (address) =>{
 
-	  const connectedContract = await getContract();
+// 	  const connectedContract = await getContract();
 	  
 
 	  
-	  	await   connectedContract.balanceOf(address).then((gx) => {
-          // console.log(gx["_hex"]);
+// 	  	await   connectedContract.balanceOf(address).then((gx) => {
+//           // console.log(gx["_hex"]);
           
-          var ownerBalance = parseInt(gx["_hex"]);
-          ownerBalance = Number(
-			    parseFloat(ownerBalance).toFixed(3)
-			  ).toLocaleString("en", {
-			    minimumFractionDigits: 0
-			  })	
+//           var ownerBalance = parseInt(gx["_hex"]);
+//           ownerBalance = Number(
+// 			    parseFloat(ownerBalance).toFixed(3)
+// 			  ).toLocaleString("en", {
+// 			    minimumFractionDigits: 0
+// 			  })	
 
-          console.log("ownerBalanceAmount:::: "+ownerBalance)
-          console.log("Get ownerBalanceAmount success");
+//           console.log("ownerBalanceAmount:::: "+ownerBalance)
+//           console.log("Get ownerBalanceAmount success");
           
-          // metadatajson();
+//           // metadatajson();
           
-          data_balance.push([address,ownerBalance]);
-          // console.log((data_address));
-          // console.log((data_balance));
-          // onwerList();
+//           data_balance.push([address,ownerBalance]);
+//           // console.log((data_address));
+//           // console.log((data_balance));
+//           // onwerList();
      
-        }, (error1) => {
-          console.log("GetAndShowBalance fail::"+String(error1));
+//         }, (error1) => {
+//           console.log("GetAndShowBalance fail::"+String(error1));
           
-        });
+//         });
 
-}
+// }
 
-function onwerList(){
+// function onwerList(){
 
 
-	for (var i = 20; i < 43; i++) {
+// 	for (var i = 20; i < 43; i++) {
 		
-		getBalanceByAddress(data_address[i]);
+// 		getBalanceByAddress(data_address[i]);
 		
 
-	}
-	console.log((data_balance));
+// 	}
+// 	console.log((data_balance));
 
 
-}
+// }
 
 // function SavePFP() {
 // 	console.log('data_pfp[i][1] <= 15'+data_pfp[0]);
