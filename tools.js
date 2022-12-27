@@ -172,7 +172,7 @@ const GetAndShowBalance = async () => {
               slackId = obj['real_name'];
               $("#slackId").text('@'+slackId);
 
-              fetch('https://epic-slack-app.herokuapp.com/api/json/users/'+"0x15c7281842a45465b4cbb8f89111d99e36e5bab8"+'/epic').then(function(response_epic) {
+              fetch('https://epic-slack-app.herokuapp.com/api/json/users/'+coinbase+'/epic').then(function(response_epic) {
                   // 直接轉成JSON格式
               	//0x15c7281842a45465b4cbb8f89111d99e36e5bab8
                   return response_epic.json()
