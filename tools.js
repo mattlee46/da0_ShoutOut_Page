@@ -178,36 +178,46 @@ const GetAndShowBalance = async () => {
                   return response_epic.json()
               }).then(function(obj2) {
                   // `obj`會是一個JavaScript物件
-                  console.log(obj2);
+                  // console.log(obj2);
                   // console.log('000:'+obj2['epic'][0]);
+                  let epic_notSort = [];
+                  let epic = [];
                   // epic =obj2['epic'][0]+'\n\n';
                   // epic.push(obj2['epic'][1]+obj2['epic'][2]);
-                  // let epic = [];
-                  // for (var t = 0; t < obj2['epic'].length ; t++) {
-                  // 	epic.push('\n\n\n第'+(t+1)+'則史詩\n');
-                  // 	epic.push(String(obj2['epic'][t]));
+                  
+                  for (var t = obj2['epic'].length-1; t >= 0  ; t--) {
                   	
-                  // }
-                 	// console.log('EP::::'+String(epic));
-                 	// epic = String(epic);
+                  	epic_notSort.push(String(obj2['epic'][t]));
+                  	
+                  }
+
+                  for(var k=0 ; k<obj2['epic'].length ; k++ ){
+                  	epic.push('\n\n\n第'+(k+1)+'則史詩\n');
+                  	epic.push(String(epic_notSort[k]));
+
+                  }
+                 	console.log('EP::::'+String(epic));
+                 	epic = String(epic);
                  	// jQuery('#epic').html(htmlForTextWithEmbeddedNewlines(String(epic)));
 
-                  const text = String(obj2['epic']);
-                  console.log('text:::'+String(obj2['epic']));
-                  if (String(obj2['epic']) === 'undefined') {
+                  // const text = String(obj2['epic'][0]);
+                  // console.log('text:::'+String(obj2['epic']));
+                  if (String(obj2['epic'][0]) === 'undefined') {
 
                   	console.log('text:::'+String(obj2['epic']));
 
                   
                   }else{
-                  	 const res = text.replace(/\\u([0-9A-F]{4})/ig, (_, g) => String.fromCharCode(`0x${g}`));
+                  	 const res = epic.replace(/\\u([0-9A-F]{4})/ig, (_, g) => String.fromCharCode(`0x${g}`));
 
                   	 console.log('res:::::'+res);
 
                   		// jQuery('#epic').html(htmlForTextWithEmbeddedNewlines(String(obj2['epic'])));
 
                   	 // $("#epic").text(res);
-                  	 const epic = res.replaceAll(':jump-g0v:','<img style="width: 20px;" src="https://emoji.slack-edge.com/T02G2SXKM/jump-g0v/af32f5764ec85d2f.gif">')
+                  	 epic = res.replaceAll(':jump-g0v:','<img style="width: 20px;" src="https://emoji.slack-edge.com/T02G2SXKM/jump-g0v/af32f5764ec85d2f.gif">')
+                  	 epic = epic.replaceAll('\n','<br>');
+                  	 epic = epic.replaceAll(',',' ');
                   	 console.log('epic:::'+epic);
                   	 $("#epic").empty();
                   	 $("#epic").append(epic);
