@@ -179,19 +179,19 @@ const GetAndShowBalance = async () => {
               }).then(function(obj2) {
                   // `obj`會是一個JavaScript物件
                   console.log(obj2);
-                  console.log(obj2['epic'][0]);
+                  // console.log('000:'+obj2['epic'][0]);
                   // epic =obj2['epic'][0]+'\n\n';
                   // epic.push(obj2['epic'][1]+obj2['epic'][2]);
-                  let epic = [];
-                  for (var t = 0; t < obj2['epic'].length ; t++) {
-                  	epic.push('\n\n\n第'+(t+1)+'則史詩\n');
-                  	epic.push(String(obj2['epic'][t]));
+                  // let epic = [];
+                  // for (var t = 0; t < obj2['epic'].length ; t++) {
+                  // 	epic.push('\n\n\n第'+(t+1)+'則史詩\n');
+                  // 	epic.push(String(obj2['epic'][t]));
                   	
-                  }
-                 	console.log('EP::::'+String(epic));
-                 	epic = String(epic);
+                  // }
+                 	// console.log('EP::::'+String(epic));
+                 	// epic = String(epic);
                  	// jQuery('#epic').html(htmlForTextWithEmbeddedNewlines(String(epic)));
-                 	jQuery('#epic').html(htmlForTextWithEmbeddedNewlines(epic));
+                 	jQuery('#epic').html(htmlForTextWithEmbeddedNewlines(String(obj2['epic'])));
 
                   // $("#epic").text(obj23);
 
