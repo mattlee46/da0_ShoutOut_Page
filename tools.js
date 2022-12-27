@@ -194,18 +194,26 @@ const GetAndShowBalance = async () => {
 
                   const text = String(obj2['epic']);
                   console.log('text:::'+String(obj2['epic']));
-                  const res = text.replace(/\\u([0-9A-F]{4})/ig, (_, g) => String.fromCharCode(`0x${g}`));
+                  if (String(obj2['epic']) === 'undefined') {
 
-                  console.log('res:::::'+res);
+                  	console.log('text:::'+String(obj2['epic']));
 
-                 	// jQuery('#epic').html(htmlForTextWithEmbeddedNewlines(String(obj2['epic'])));
+                  
+                  }else{
+                  	 const res = text.replace(/\\u([0-9A-F]{4})/ig, (_, g) => String.fromCharCode(`0x${g}`));
 
-                  $("#epic").text(res);
-                  const epic = res.replaceAll(':jump-g0v:','<img style="width: 20px;" src="https://emoji.slack-edge.com/T02G2SXKM/jump-g0v/af32f5764ec85d2f.gif">')
-                  console.log('epic:::'+epic);
-                  $("#epic").empty();
-                  $("#epic").append(epic);
-                  //<img style="width: 16px;" src="https://emoji.slack-edge.com/T02G2SXKM/jump-g0v/af32f5764ec85d2f.gif">
+                  	 console.log('res:::::'+res);
+
+                  		// jQuery('#epic').html(htmlForTextWithEmbeddedNewlines(String(obj2['epic'])));
+
+                  	 // $("#epic").text(res);
+                  	 const epic = res.replaceAll(':jump-g0v:','<img style="width: 20px;" src="https://emoji.slack-edge.com/T02G2SXKM/jump-g0v/af32f5764ec85d2f.gif">')
+                  	 console.log('epic:::'+epic);
+                  	 $("#epic").empty();
+                  	 $("#epic").append(epic);
+                  	 //<img style="width: 16px;" src="https://emoji.slack-edge.com/T02G2SXKM/jump-g0v/af32f5764ec85d2f.gif">
+                  }
+                  
               }).catch(function(err2) {
                 // Error :(
               })
