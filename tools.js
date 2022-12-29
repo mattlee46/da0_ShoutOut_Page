@@ -10,6 +10,10 @@ var slackId;
 
 // var ownerAddress;
 // var ownerBalance;
+// 0-15 - Level1
+// 16-30 - Level2
+// 31-60 - Level3
+// 61+ - Level4
 let data_pfp =[
 	["0x0042e5Dc4E5bE09cfaf5722dd77cFa92D1AF7341",3,4,5,6,4],
 	["0x1f6c07a5a25faf5c8315826827c15a8340f30767",3,4,5,2,2],
@@ -210,17 +214,21 @@ const GetAndShowBalance = async () => {
                   }else{
                   	 const res = epic.replace(/\\u([0-9A-F]{4})/ig, (_, g) => String.fromCharCode(`0x${g}`));
 
-                  	 console.log('res:::::'+res);
+                  	 // console.log('res:::::'+res);
 
                   		// jQuery('#epic').html(htmlForTextWithEmbeddedNewlines(String(obj2['epic'])));
 
                   	 // $("#epic").text(res);
-                  	 epic = res.replaceAll(':jump-g0v:','<img style="width: 20px;" src="https://emoji.slack-edge.com/T02G2SXKM/jump-g0v/af32f5764ec85d2f.gif">')
-                  	 epic = epic.replaceAll('\n','<br>');
-                  	 epic = epic.replaceAll(',',' ');
-                  	 console.log('epic:::'+epic);
+                  	 res1 = res.replaceAll('<','《');
+
+                  	 res2 = res1.replaceAll('>','》');
+                  	 // console.log('res1:::::'+res2);
+                  	 epic0 = res2.replaceAll(':jump-g0v:','<img style="width: 20px;" src="https://emoji.slack-edge.com/T02G2SXKM/jump-g0v/af32f5764ec85d2f.gif">')
+                  	 epic1 = epic0.replaceAll('\n','<br>');
+                  	 epic2 = epic1.replaceAll(',',' ');
+                  	 console.log('epic:::'+epic2);
                   	 $("#epic").empty();
-                  	 $("#epic").append(epic);
+                  	 $("#epic").append(epic2);
                   	 //<img style="width: 16px;" src="https://emoji.slack-edge.com/T02G2SXKM/jump-g0v/af32f5764ec85d2f.gif">
                   }
                   
