@@ -176,9 +176,10 @@ const GetAndShowBalance = async () => {
               slackId = obj['real_name'];
               $("#slackId").text('@'+slackId);
 
-              fetch('https://epic-slack-app.herokuapp.com/api/json/users/'+coinbase+'/epic').then(function(response_epic) {
+              fetch('https://epic-slack-app.herokuapp.com/api/json/users/'+coinbase+'/epic002').then(function(response_epic) {
                   // 直接轉成JSON格式
               	//0x15c7281842a45465b4cbb8f89111d99e36e5bab8
+              		
                   return response_epic.json()
               }).then(function(obj2) {
                   // `obj`會是一個JavaScript物件
@@ -189,13 +190,13 @@ const GetAndShowBalance = async () => {
                   // epic =obj2['epic'][0]+'\n\n';
                   // epic.push(obj2['epic'][1]+obj2['epic'][2]);
                   
-                  for (var t = obj2['epic'].length-1; t >= 0  ; t--) {
+                  for (var t = obj2['epic002'].length-1; t >= 0  ; t--) {
                   	
-                  	epic_notSort.push(String(obj2['epic'][t]));
+                  	epic_notSort.push(String(obj2['epic002'][t]));
                   	
                   }
 
-                  for(var k=0 ; k<obj2['epic'].length ; k++ ){
+                  for(var k=0 ; k<obj2['epic002'].length ; k++ ){
                   	epic.push('\n\n\n第'+(k+1)+'則史詩\n');
                   	epic.push(String(epic_notSort[k]));
 
@@ -206,9 +207,9 @@ const GetAndShowBalance = async () => {
 
                   // const text = String(obj2['epic'][0]);
                   // console.log('text:::'+String(obj2['epic']));
-                  if (String(obj2['epic'][0]) === 'undefined') {
+                  if (String(obj2['epic002'][0]) === 'undefined') {
 
-                  	console.log('text:::'+String(obj2['epic']));
+                  	console.log('text:::'+String(obj2['epic002']));
 
                   
                   }else{
