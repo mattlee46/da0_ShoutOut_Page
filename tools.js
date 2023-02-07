@@ -394,6 +394,36 @@ const connectWalletGetAddress = async () => {
 // var mysql = require('mysql');
 
 
+// function Catch() {
+	
+	
+// 	let rawdata = fs.readFileSync('assets/json/0.json');
+// 	let student = JSON.parse(rawdata);
+
+// 	console.log(student);
+// 	console.log(typeof student);
+
+// 	for (var i = 0 ; i < 44 ; i++) {//student.length
+// 		console.log(student["image"]);
+// 		console.log(student["name"]);
+// 		//CHANGE
+// 		student["image"] = "https://ipfs.io/ipfs/QmZY14navrmiw7EFr8jCzcgpoqsn5LamFRbDqpYSVgZEVb/"+data_address[(43-i)]+".png";
+// 		student["name"] = "me0w #"+(i+1);
+		
+// 		console.log(student["image"]);
+// 		console.log(student["name"]);
+// 		//SAVE
+// 		let data = JSON.stringify(student);
+// 		fs.writeFileSync('assets/json/'+(i+1)+'.json', data);
+// 	}
+
+
+
+	
+// }
+
+// Catch();
+
 
 // const getAddressById = async (id) =>{
 
