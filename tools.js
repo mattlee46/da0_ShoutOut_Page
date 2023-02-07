@@ -213,7 +213,7 @@ const GetAndShowBalance = async () => {
 
                   for(var k=0 ; k<obj2['epic002'].length ; k++ ){
                   	// epic.push('\n第'+(k+1)+'則史詩\n');
-                  	epic.push('第'+(k+1)+'則史詩\n'+String(epic_notSort[k])+'\n');
+                  	epic.push('no.'+(k+1)+' shoutouts\n'+String(epic_notSort[k])+'\n');
 
                   }
                  	console.log('EP::::'+String(epic));
