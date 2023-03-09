@@ -171,7 +171,7 @@ const GetAndShowBalance = async () => {
           $("#before_connect").hide();
           $("#after_connect").show();
 
-          fetch('https://epic-slack-app.herokuapp.com/api/json/users/'+coinbase+'/real_name').then(function(response_name) {
+          fetch('https://epic-slack-app.herokuapp.com/api/json/users/by-address/'+coinbase+'/real_name').then(function(response_name) {
               // 直接轉成JSON格式
               return response_name.json()
           }).then(function(obj) {
@@ -191,8 +191,9 @@ const GetAndShowBalance = async () => {
               $("#slackId").empty();
 							$("#slackId").append(a2);
 
-              fetch('https://epic-slack-app.herokuapp.com/api/json/users/'+coinbase+'/epic002').then(function(response_epic) {
+              fetch('https://epic-slack-app.herokuapp.com/api/json/users/by-address/'+coinbase+'/epic002').then(function(response_epic) {
                   // 直接轉成JSON格式
+              	//https://epic-slack-app.herokuapp.com/api/json/users/by-address/0xafcca66ca8737fe647b7e94cb1a0891a72ab3ae5/epic002
               	//0x15c7281842a45465b4cbb8f89111d99e36e5bab8
               		
                   return response_epic.json()
@@ -213,7 +214,7 @@ const GetAndShowBalance = async () => {
 
                   for(var k=0 ; k<obj2['epic002'].length ; k++ ){
                   	// epic.push('\n第'+(k+1)+'則史詩\n');
-                  	epic.push('no.'+(k+1)+' shoutouts\n'+String(epic_notSort[k])+'\n');
+                  	epic.push('no.'+(k+1)+' shoutouts\n'+String(epic_notSort[k])+'\n\n');
 
                   }
                  	console.log('EP::::'+String(epic));
