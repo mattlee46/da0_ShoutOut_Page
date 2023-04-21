@@ -462,7 +462,7 @@ const get_shoutout_from_userid = (id) =>{
         shouout_obj.message.push(message);
         shouout_obj.user.push(String(obj2['epic002'][t]['user']));
         shouout_obj.time.push(formattedTime);
-        shouout_obj.user.push(String(obj2['epic002'][t]['channel']));
+        shouout_obj.channel.push(String(obj2['epic002'][t]['channel']));
         
       }
 
@@ -545,7 +545,7 @@ const get_shoutout_g0v = () =>{
         shouout_obj.message.push(message);
         shouout_obj.user.push(String(obj2['epic002'][t]['user']));
         shouout_obj.time.push(formattedTime);
-        shouout_obj.user.push(String(obj2['epic002'][t]['channel']));
+        shouout_obj.channel.push(String(obj2['epic002'][t]['channel']));
         
       }
       // console.log("shouout_obj000:::"+JSON.stringify(shouout_obj));
